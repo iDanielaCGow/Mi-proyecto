@@ -44,12 +44,12 @@ public class LevelGrid : MonoBehaviour
     }
 
     
-    public void AddUnitAtGridPosition(GridPosition pos, Unit unidad)
+    public void AddUnitAtGridPosition(GridPosition pos, Unit unit)
     {
         // Obtengo el cuadrito que está en la posición
         GridObject casilla = gridSystem.GetGridObject(pos);
         // En esa casilla agrego a la unidad
-        casilla.AddUnit(unidad);
+        casilla.AddUnit(unit);
     }
 
     /*
@@ -90,16 +90,16 @@ public class LevelGrid : MonoBehaviour
     public int GetHeight() => gridSystem.GetHeight();
     
 	
-	/*public bool HasAnyUnitOnGridPosition(GridPosition posicion)
+	public bool HasAnyUnitOnGridPosition(GridPosition posicion)
 	{
 		GridObject objeto = gridSystem.GetGridObject(posicion);
 		return objeto.HasAnyUnit();
-	}*/
+	}
 	
-	/*public Unidad GetUnitAtGridPosition(GridPosition pos)
+	public Unit GetUnitAtGridPosition(GridPosition pos)
 	{
 		GridObject objeto = gridSystem.GetGridObject(pos);
 		return objeto.GetUnit();
-	}*/
+	}
 
 }
