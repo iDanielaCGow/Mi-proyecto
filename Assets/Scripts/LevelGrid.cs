@@ -11,6 +11,9 @@ public class LevelGrid : MonoBehaviour
 	[SerializeField] private int width;
 	[SerializeField] private int height;
 	[SerializeField] private float cellSize;
+
+    //evento
+    public event EventHandler OnAnyUnitMovedGridPosition;
 	
 	// singleton
     public static LevelGrid Instance {get; private set;}
@@ -35,7 +38,7 @@ public class LevelGrid : MonoBehaviour
 		=>
 		new GridObject(g, gridPosition));
 
-        gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
+      //  gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
     }
 
     private void Start()
@@ -52,29 +55,28 @@ public class LevelGrid : MonoBehaviour
         casilla.AddUnit(unit);
     }
 
-    /*
+    
     public void RemoveUnitAtGridPosition(GridPosition pos, Unit unidad)
     {
         GridObject casilla = gridSystem.GetGridObject(pos);
         casilla.RemoveUnit(unidad);
-    }*/
+    }
 
-    /*
     public List<Unit> GetUnitListAtGridPosition(GridPosition pos)
     {
         GridObject casilla = gridSystem.GetGridObject(pos);
         return casilla.GetUnitList();
-    }*/
+    }
 
-    /*
+    
     public void UnitMovedGridPosition(
-        Unidad unidad, GridPosition origen, GridPosition destino)
+        Unit unidad, GridPosition origen, GridPosition destino)
     {
         RemoveUnitAtGridPosition(origen, unidad);
         AddUnitAtGridPosition(destino, unidad);
         
         OnAnyUnitMovedGridPosition?.Invoke(this, EventArgs.Empty);
-    }*/
+    }
 
     public GridPosition GetGridPosition(Vector3 worldPosition) => 
 		gridSystem.GetGridPosition(worldPosition);
